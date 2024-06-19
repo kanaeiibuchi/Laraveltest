@@ -1,1 +1,31 @@
-{"filter":false,"title":"2024_06_08_014738_create_books_table.php","tooltip":"/cms/database/migrations/2024_06_08_014738_create_books_table.php","undoManager":{"mark":2,"position":2,"stack":[[{"start":{"row":14,"column":25},"end":{"row":15,"column":0},"action":"insert","lines":["",""],"id":2},{"start":{"row":15,"column":0},"end":{"row":15,"column":12},"action":"insert","lines":["            "]}],[{"start":{"row":15,"column":12},"end":{"row":18,"column":52},"action":"insert","lines":[" $table->string('item_name');     //ここを追加","            $table->integer('item_number');  //ここを追加","            $table->integer('item_amount');  //ここを追加","            $table->date('published');       //ここを追加"],"id":3}],[{"start":{"row":15,"column":12},"end":{"row":15,"column":13},"action":"remove","lines":[" "],"id":4}]]},"ace":{"folds":[],"scrolltop":0,"scrollleft":0,"selection":{"start":{"row":15,"column":36},"end":{"row":15,"column":36},"isBackwards":false},"options":{"guessTabSize":true,"useWrapMode":false,"wrapToView":true},"firstLineState":{"row":4,"state":"php-start","mode":"ace/mode/php"}},"timestamp":1717811384201,"hash":"04934d5e493b6c7c23e6979aeb38afe8e6715084"}
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('books', function (Blueprint $table) {
+            $table->id();
+            $table->string('item_name');     //ここを追加
+            $table->integer('item_number');  //ここを追加
+            $table->integer('item_amount');  //ここを追加
+            $table->date('published');       //ここを追加
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('books');
+    }
+};
